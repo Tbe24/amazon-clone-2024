@@ -1,0 +1,182 @@
+*{
+  padding:0px;
+ margin:0px;
+}
+.header_container {
+    background-color: #1a1a1a; /* Black background */
+    display: flex; /* Flexbox layout */
+    justify-content: space-between; /* Space between the items */
+    align-items: center; /* Center vertically */
+    padding: 0 20px; /* Padding for left and right spacing */
+    height: 70px; /* Fixed height */
+    color: white; /* Text color */
+}
+
+.logo_container {
+    display: flex; /* Flexbox layout */
+    align-items: center; /* Center logo and delivery info */
+}
+
+.logo_container img {
+    height: 50px; /* Fix height for the logo */
+}
+
+.delivery {
+    display: flex; /* Flex layout */
+    align-items: center; /* Align vertically */
+    gap: 5px; /* Space between pin and text */
+    margin-left: 10px; /* Space between logo and delivery */
+}
+
+.delivery span {
+    font-size: 14px; /* Adjust icon size */
+}
+
+.delivery p {
+    font-size: 12px; /* Smaller font for "Delivered to" */
+    margin: 0;
+}
+
+.delivery span:last-child {
+    font-weight: bold; /* Highlight the location */
+}
+
+.search {
+    display: flex; /* Flexbox layout */
+    align-items: center; /* Align items vertically */
+    flex: 1; /* Allow search bar to take available space */
+    max-width: 1000px; /* Limit the width of the search bar */
+    margin: 0 20px; /* Spacing between components */
+    border-radius: 10px; /* Rounded edges */
+    overflow: hidden; /* Prevent overflow */
+    background-color: white; /* White background */
+}
+
+.search select {
+    border: none; /* Remove border */
+    padding: 10px; /* Padding for dropdown */
+    font-size: 14px; /* Font size */
+    background-color: #f3f3f3; /* Light gray background */
+}
+
+.search input {
+    flex: 1; /* Fill the remaining space */
+    padding: 10px; /* Inner padding */
+    border: none; /* Remove border */
+    font-size: 16px; /* Font size */
+}
+
+.search svg {
+    padding: 10px;
+    background: #febd69; /* Amazon-like orange */
+    color: #1a1a1a; /* Dark icon color */
+    cursor: pointer;
+}
+
+.search svg:hover {
+    background-color: #d49644; /* Slightly darker orange */
+}
+
+.order_container {
+    display: flex; /* Flex layout */
+    align-items: center; /* Align items vertically */
+    gap: 20px; /* Space between each item */
+}
+
+.language {
+    display: flex; /* Flex layout */
+    align-items: center; /* Align flag and dropdown */
+    gap: 5px; /* Space between flag and dropdown */
+}
+
+.language img {
+    width: 20px; /* Adjust flag size */
+    height: 15px; /* Adjust flag height */
+}
+
+.language select {
+    background: #1a1a1a; /* Match background */
+    border: none; /* Remove border */
+    color: white; /* White text */
+    font-size: 14px; /* Font size */
+}
+
+.order_container a {
+    text-decoration: none; /* Remove underline */
+    color: white; /* White text */
+    font-size: 14px; /* Adjust font size */
+    text-align: center; /* Center-align text */
+}
+
+.cart {
+    position: relative; /* For badge positioning */
+    display: flex;
+    align-items: center;
+}
+
+.cart span {
+    position: absolute; /* Position badge */
+    top: -5px; /* Adjust vertical position */
+    right: -10px; /* Adjust horizontal position */
+    background: orange; /* Orange badge */
+    color: black; /* Black text */
+    font-size: 12px; /* Font size */
+    font-weight: bold; /* Bold text */
+    padding: 2px 5px; /* Padding inside badge */
+    border-radius: 50%; /* Circle shape */
+}
+
+.lower_container {
+  background-color: #232f3e;
+  color: white;
+}
+.lower_container ul {
+  display: flex;
+  list-style: none;
+  gap: 5px;
+}
+.lower_container ul li {
+  padding: 8px;
+}
+.lower_container ul li:first-child {
+  display: flex;
+  gap: 2px;
+  align-items: center;
+}
+@media screen and (max-width: 576px) {
+.header_container {
+display: flex;
+flex-direction: column !important;
+height: auto;
+}
+.lower_container ul li:not(:first-child) {
+  display: none;
+}
+.language {
+display: none;
+}
+}
+
+/* Hover effect for order container links */
+.order_container a:hover {
+  border: 1px solid white; /* Adds a white border */
+  border-radius: 3px; /* Rounds the corners of the border */
+}
+
+/* Hover effect for delivery section */
+.delivery:hover {
+  border: 1px solid white; /* Adds a white border */
+  border-radius: 3px; /* Rounds the corners of the border */
+}
+
+/* Hover effect for logo container links */
+.logo_container a:hover {
+  border: 1px solid white; /* Adds a white border */
+  border-radius: 3px; /* Rounds the corners of the border */
+}
+
+/* Hover effect for list items in the lower container */
+.lower_container ul li:hover {
+  border: 1px solid white; /* Adds a white border */
+  border-radius: 3px; /* Rounds the corners of the border */
+}
