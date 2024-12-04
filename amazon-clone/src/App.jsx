@@ -3,6 +3,7 @@ import './App.css'
 import Header from './components/Header/Header'
 import CarouselEffect from "./components/carousel/Carousel";
 import Category from './components/Category/Category';
+import Product from './components/product/Product';
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       <Header />
       <CarouselEffect />
       <Category />
+      <Product />
     </>
   );
 }
