@@ -23,7 +23,7 @@ function Product() {
         <div>Loading...</div> // Replace with a skeleton loader component
       ) : (
         products.map((product) => (
-          <ProductCard key={product.id} Product={product} />
+          <ProductCard key={product.id} product={product} />
         ))
       )}
     </section>
