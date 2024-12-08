@@ -3,9 +3,10 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Landing from "./Pages/Landing/Landing";
 import SignIn from "./pages/auth/SignIn";
 import Payment from "./Pages/Payment/Payment";
-import Orders from "./Pages/Orders/Orders"
-import Results from "./pages/Results/Results"
+import Orders from "./Pages/Orders/Orders";
+import Results from "./pages/Results/Results";
 import Cart from "./Pages/Cart/Cart";
+import ProductDetail from "./pages/ProductDetail/ProductDetail";
 
 function Routing() {
   return (
@@ -17,6 +18,7 @@ function Routing() {
         <Route path="/orders" element={<Orders />} />
         {/* <Route path="/category/:C" element={<Results />} /> */}
         <Route path="/category/:categoryName" element={<Results />} />
+        <Route path="/products/:productId" element={<ProductDetail />} />
         <Route path="/cart" element={<Cart />} />
       </Routes>
     </Router>
