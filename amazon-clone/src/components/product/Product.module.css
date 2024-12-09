@@ -55,3 +55,33 @@ justify-items: center;
 .products_container section {
 margin: 0 auto;
 } */
+
+.product_flexed {
+  box-shadow: none;
+  height: 50vh; /* Combined with height from the second .product_flexed block */
+  display: flex;
+  gap: 50px;
+  width: 100%;
+}
+
+.product_flexed h3 {
+  padding: 20px; /* Fixed the invalid 'epx' unit */
+}
+
+.product_flexed .button {
+  display: block;
+  position: static;
+  width: 150px;
+  margin-right: 40px;
+}
+.product_flexed img {
+  width: 300px !important;
+  height: auto;
+}
+
+@media screen and (max-width: 768px) {
+  .product_flexed {
+    display: flex;
+    flex-direction: column;
+  }
+}

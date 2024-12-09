@@ -4,13 +4,13 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import ProductCard from "../../components/product/ProductCard";
 import {productUrl} from "../../Api/endpoint"
+import Loader from "../../components/Loader/Loader";
 import classes from "./ProductDetail.module.css";
 
 function ProductDetail() {
   const { productId } = useParams(); // Extract productId from route params
   const [product, setProduct] = useState(null); // Initialize product as null
   const [loading, setLoading] = useState(true); // Track loading state
-console.log(`Product ID: ${productId}`);
 
   useEffect(() => {
     setLoading(true);
@@ -29,7 +29,7 @@ console.log(`Product ID: ${productId}`);
   if (loading) {
     return (
       <LayOut>
-        <p>Loading product details...</p>
+        <Loader />
       </LayOut>
     );
   }
@@ -45,7 +45,11 @@ console.log(`Product ID: ${productId}`);
   return (
     <LayOut>
       <section className={classes.product_detail}>
-        <ProductCard product={product} />{" "}
+        <ProductCard 
+        product={product} 
+        flex={true}  
+        renderDesc={true}
+        />
         {/* Pass product data to ProductCard */}
       </section>
     </LayOut>

@@ -5,20 +5,21 @@ import { productUrl } from "../../Api/endpoint";
 import axios from "axios";
 import classes from "./Results.module.css";
 import ProductCard from "../../components/product/ProductCard";
+import Loader from "../../components/Loader/Loader";
 
 function Results() {
   const [results, setresults] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const { categoryName } = useParams();
-  console.log("Category Name:", categoryName);
+  // console.log("Category Name:", categoryName);
 
 useEffect(() => {
   setLoading(true);
   axios
     .get(`${productUrl}/products/category/${categoryName}`)
     .then((res) => {
-      console.log("API Response:", res.data); // Check the response
+      // console.log("API Response:", res.data); // Check the response
       setresults(res.data);
       setLoading(false);
     })
@@ -38,11 +39,11 @@ useEffect(() => {
         <hr />
         {error && <p className={classes.error}>{error}</p>}
         {loading ? (
-          <p>Loading...</p>
+          <Loader />
         ) : (
           <div className={classes.products_container}>
             {results?.map((product) => {
-              console.log("Product:", product); // Debugging the product object
+              {/* console.log("Product:", product); // Debugging the product object */}
               return <ProductCard key={product?.id} product={product} />;
             })}
           </div>

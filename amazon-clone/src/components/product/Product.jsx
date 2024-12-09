@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState, useEffect } from "react";
 import ProductCard from './ProductCard';
+import Loader from '../Loader/Loader';
 import classes from "./Product.module.css"
 
 function Product() {
@@ -20,7 +21,7 @@ function Product() {
   return (
     <section className={classes.products_container}>
       {loading ? (
-        <div>Loading...</div> // Replace with a skeleton loader component
+        <Loader /> // Replace with a skeleton loader component
       ) : (
         products.map((product) => (
           <ProductCard key={product.id} product={product} />
