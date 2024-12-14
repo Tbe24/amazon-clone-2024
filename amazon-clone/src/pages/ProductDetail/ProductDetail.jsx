@@ -45,10 +45,11 @@ function ProductDetail() {
   return (
     <LayOut>
       <section className={classes.product_detail}>
-        <ProductCard 
-        product={product} 
-        flex={true}  
-        renderDesc={true}
+        <ProductCard
+          product={product}
+          flex={true}
+          renderDesc={true}
+          renderAdd={true}
         />
         {/* Pass product data to ProductCard */}
       </section>

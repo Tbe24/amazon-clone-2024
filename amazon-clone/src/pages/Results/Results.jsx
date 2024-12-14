@@ -44,7 +44,14 @@ useEffect(() => {
           <div className={classes.products_container}>
             {results?.map((product) => {
               {/* console.log("Product:", product); // Debugging the product object */}
-              return <ProductCard key={product?.id} product={product} />;
+              return (
+                <ProductCard
+                  key={product?.id}
+                  product={product}
+                  renderDesc={false}
+                  renderAdd={true}
+                />
+              );
             })}
           </div>
         )}
@@ -54,3 +61,4 @@ useEffect(() => {
 }
 
 export default Results;
+
