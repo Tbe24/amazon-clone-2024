@@ -15,18 +15,18 @@ function Cart() {
     return item.price * item.amount + amount;
   }, 0);
 
-const increment =(item)=>{
-dispatch({
-type: Type.ADD_TO_BASKET,
-item
-})
-}
-const decrement =(id)=>{
-dispatch({
-type :Type.REMOVE_FROM_BASKET,
-id
-})
-}
+  const increment = (item) => {
+    dispatch({
+      type: Type.ADD_TO_BASKET,
+      item,
+    });
+  };
+  const decrement = (id) => {
+    dispatch({
+      type: Type.REMOVE_FROM_BASKET,
+      id,
+    });
+  };
   return (
     <LayOut>
       <section className={classes.container}>
@@ -38,9 +38,9 @@ id
             <p>Oops! No item in your cart</p>
           ) : (
             basket?.map((item) => (
-              <section className={classes.Cart_product}>
+              <section className={classes.Cart_product} key={item.id}>
+                {/* Ensure `item.id` is unique */}
                 <ProductCard
-                  key={item.id} // Ensure `item.id` is unique
                   product={item}
                   renderDesc={true}
                   renderAdd={false}
@@ -51,14 +51,14 @@ id
                     className={classes.btn}
                     onClick={() => increment(item)}
                   >
-                    <IoIosArrowUp size={20}/>
+                    <IoIosArrowUp size={20} />
                   </button>
                   <span>{item.amount}</span>
                   <button
                     className={classes.btn}
                     onClick={() => decrement(item.id)}
                   >
-                    <IoIosArrowDown size={20}/>
+                    <IoIosArrowDown size={20} />
                   </button>
                 </div>
               </section>

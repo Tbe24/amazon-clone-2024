@@ -6,15 +6,16 @@ import { BiCart } from "react-icons/bi";
 import LowerHeader from "./LowerHeader";
 import { Link } from "react-router-dom";
 import { DataContext } from "../DataProvider/DataProvider";
+import {auth} from "../../Utility/firebase"
 
 function Header() {
   const [state, dispatch] = useContext(DataContext); // Correct destructuring
-  const { basket } = state; // Access basket from state
+  const { user, basket } = state; // Access basket from state
 
   // console.log("Basket Length:", basket?.length || 0); // Safe access
-const totalItem = basket?.reduce((amount, item)=>{
-     return item.amount + amount
-},0)
+  const totalItem = basket?.reduce((amount, item) => {
+    return item.amount + amount;
+  }, 0);
 
   return (
     <section className={classes.fixed}>
@@ -42,7 +43,7 @@ const totalItem = basket?.reduce((amount, item)=>{
             <option value="">All</option>
           </select>
           <input type="text" placeholder="Search product" />
-          <BsSearch size={25} />
+          <BsSearch size={45} />
         </div>
 
         {/* Right Section (Language, Links, Cart) */}
@@ -56,9 +57,20 @@ const totalItem = basket?.reduce((amount, item)=>{
               <option value="">EN</option>
             </select>
           </Link>
-          <Link to="/auth">
-            <p>Sign In</p>
-            <span>Account & Lists</span>
+          <Link to={!user && "/auth"}>
+            <div>
+              {user ? (
+                <>
+                  <p>Hello {user?.email?.split("@")[0]} </p>
+                  <span onClick={()=>{auth.signOut()}}>Sign out</span>
+                </>
+              ) : (
+                <>
+                  <p>Hello, Sign In </p>
+                  <span>Account & Lists</span>
+                </>
+              )}
+            </div>
           </Link>
           <Link to="/orders">
             <p>Returns</p>
